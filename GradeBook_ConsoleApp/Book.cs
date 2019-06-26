@@ -12,11 +12,45 @@ namespace GradeBook_ConsoleApp
             Name = name;
         }
 
+        public void AddLetterGrade(char letter)
+        {
+            switch(letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;
+
+                case 'B':
+                    AddGrade(80);
+                    break;
+
+                case 'C':
+                    AddGrade(70);
+                    break;
+
+                case 'D':
+                    AddGrade(60);
+                    break;
+
+                case 'E':
+                    AddGrade(50);
+                    break;
+
+                default:
+                    AddGrade(0);
+                    break;
+            }
+        }
+
         public void AddGrade(double grade)
         {
             if(0 <= grade && grade <= 100)
             {
                 grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid value");
             }
         }
 
