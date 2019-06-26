@@ -7,6 +7,22 @@ namespace GradeBook_xUnitTest
     public class TypeTests
     {
         [Fact]
+        public void StringsBehaveLikeValueTypes()
+        {
+            string name = "Scott";
+            var upper = MakeUppercase(name);
+
+            //  Strings are a class, a.k.a a reference type, but acts like a value type.
+            //  Because strings are immuateable, you must make a copy of the string.
+            Assert.Equal("SCOTT", upper);
+        }
+
+        private string MakeUppercase(string parameter)
+        {
+            return parameter.ToUpper(); //  Makes a *copy*
+        }
+
+        [Fact]
         public void ValueTypesAlsoPassByValue()
         {
             var x = GetInt();
