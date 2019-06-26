@@ -4,7 +4,7 @@ using System.Text;
 
 namespace C_Sharp_Fundamentals_GradeBook_ConsoleApp
 {
-    class Book
+    public class Book
     {
         public Book(string name)
         {
