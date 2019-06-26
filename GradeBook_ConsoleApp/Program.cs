@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace C_Sharp_Fundamentals_GradeBook_ConsoleApp
+namespace GradeBook_ConsoleApp
 {
     class Program
     {
@@ -12,7 +12,7 @@ namespace C_Sharp_Fundamentals_GradeBook_ConsoleApp
             book.AddGrade(90.5);
             book.AddGrade(77.5);
 
-            book.ShowStatistics();
+            book.GetStatistics();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace C_Sharp_Fundamentals_GradeBook_ConsoleApp
+namespace GradeBook_ConsoleApp
 {
     public class Book
     {
@@ -17,7 +17,7 @@ namespace C_Sharp_Fundamentals_GradeBook_ConsoleApp
             grades.Add(grade);
         }
 
-        public void ShowStatistics()
+        public void GetStatistics()
         {
             var result = 0.0;
             var highGrade = double.MinValue;

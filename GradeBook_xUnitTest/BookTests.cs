@@ -1,6 +1,5 @@
 using System;
 using Xunit;
-using C_Sharp_Fundamentals_GradeBook_ConsoleApp;
 
 namespace GradeBook_xUnitTest
 {
@@ -16,10 +15,12 @@ namespace GradeBook_xUnitTest
             book.AddGrade(77.3);
 
             //  Act
-            book.ShowStatistics();
+            var result = book.GetStatistics();
 
             //  Assert
-
+            Assert.Equal(85.6, result.Average);
+            Assert.Equal(90.5, result.High);
+            Assert.Equal(77.3, result.Low);
         }
     }
 }
