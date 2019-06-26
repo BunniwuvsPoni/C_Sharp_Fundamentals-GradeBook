@@ -14,7 +14,10 @@ namespace GradeBook_ConsoleApp
 
         public void AddGrade(double grade)
         {
-            grades.Add(grade);
+            if(0 <= grade && grade <= 100)
+            {
+                grades.Add(grade);
+            }
         }
 
         public Statistics GetStatistics()
