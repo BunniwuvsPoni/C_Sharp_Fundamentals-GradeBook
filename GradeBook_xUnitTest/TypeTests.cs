@@ -10,14 +10,14 @@ namespace GradeBook_xUnitTest
         public void CSharpPassByRef()
         {
             var book1 = GetBook("Book 1");
-            GetBookSetName(ref book1, "New Name");
+            GetBookSetName(out book1, "New Name");
 
             Assert.Equal("New Name", book1.Name);
         }
 
-        private void GetBookSetName(ref Book book, string name)
+        private void GetBookSetName(out Book book, string name) //  Can use ref or out, out assumes that the incomming paramater has not been initialized.
         {
-            book = new Book(name);
+            book = new Book(name);  //  Out forces you to initialize the output parameter
         }
 
         [Fact]
