@@ -4,7 +4,10 @@ using System.Text;
 
 namespace GradeBook_ConsoleApp
 {
-    class Statistic
+    public class Statistics
     {
+        public double Average;
+        public double High;
+        public double Low;
     }
 }

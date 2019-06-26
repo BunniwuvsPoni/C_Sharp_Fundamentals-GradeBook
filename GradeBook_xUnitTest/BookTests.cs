@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using GradeBook_ConsoleApp;
 
 namespace GradeBook_xUnitTest
 {
