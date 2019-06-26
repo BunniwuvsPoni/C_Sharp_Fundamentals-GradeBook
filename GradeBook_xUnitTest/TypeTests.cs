@@ -9,12 +9,12 @@ namespace GradeBook_xUnitTest
         [Fact]
         public void ValueTypesAlsoPassByValue()
         {
-            var x = GetInt();        
+            var x = GetInt();
             SetInt(out x);
 
             //  Value is still 3 because even though x is a value and not a reference, C# always uses pass by value (valued is copied)
             //  Value is now 42 beacuse we are now using out to pass by reference
-            Assert.Equal(42, x); 
+            Assert.Equal(42, x);
         }
 
         private void SetInt(out int z)
