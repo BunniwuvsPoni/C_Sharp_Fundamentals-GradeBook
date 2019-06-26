@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeBook_ConsoleApp", "GradeBook_ConsoleApp\GradeBook_ConsoleApp.csproj", "{92ED94C4-A0A1-4121-B1BC-1DB8784CB480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeBook_xUnitTest", "GradeBook_xUnitTest\GradeBook_xUnitTest.csproj", "{562BADEA-90D0-46BB-952E-55054F01F98D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92ED94C4-A0A1-4121-B1BC-1DB8784CB480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92ED94C4-A0A1-4121-B1BC-1DB8784CB480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92ED94C4-A0A1-4121-B1BC-1DB8784CB480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92ED94C4-A0A1-4121-B1BC-1DB8784CB480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562BADEA-90D0-46BB-952E-55054F01F98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562BADEA-90D0-46BB-952E-55054F01F98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562BADEA-90D0-46BB-952E-55054F01F98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562BADEA-90D0-46BB-952E-55054F01F98D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {617A6726-CD8F-4C76-BD7F-C0E747A3BE2A}
+	EndGlobalSection
+EndGlobal
