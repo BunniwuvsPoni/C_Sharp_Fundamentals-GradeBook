@@ -23,8 +23,16 @@ namespace GradeBook_ConsoleApp
                     break;
                 }
 
-                var grade = double.Parse(input);
-                book.AddGrade(grade);
+                //  Try/Catch, used to catch exception and move on
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
 
             var stats = book.GetStatistics();
