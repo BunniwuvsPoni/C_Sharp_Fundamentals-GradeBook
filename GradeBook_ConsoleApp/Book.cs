@@ -6,6 +6,9 @@ namespace GradeBook_ConsoleApp
 {
     public class Book
     {
+        //  Adding a delegate for the Grade Added event (Note: is is considered best practice to place this in its own class file)
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
         public Book(string name)
         {
             grades = new List<double>();
@@ -43,12 +46,19 @@ namespace GradeBook_ConsoleApp
             if(0 <= grade && grade <= 100)
             {
                 grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
                 throw new ArgumentException($"Invalid {nameof(grade)}, please try again");
             }
         }
+
+        //  Event for subscribing
+        public event GradeAddedDelegate GradeAdded;
 
         public Statistics GetStatistics()
         {

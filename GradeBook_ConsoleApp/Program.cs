@@ -8,6 +8,10 @@ namespace GradeBook_ConsoleApp
         static void Main(string[] args)
         {
             var book = new Book("Bunni's Grade Book");
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded;    //  Can also subtract using subtract equals
+            book.GradeAdded += OnGradeAdded;
 
             //  Instructions
             Console.WriteLine("Please input your grades, input 'q' to compute the statistics");
@@ -49,6 +53,11 @@ namespace GradeBook_ConsoleApp
             Console.WriteLine($"The highest grade is: {stats.High:N2}");
             Console.WriteLine($"The average grade is: {stats.Average:N2}");
             Console.WriteLine($"The average letter grade is: {stats.Letter}");
+        }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added");
         }
     }
 }
