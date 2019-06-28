@@ -100,7 +100,7 @@ namespace GradeBook_ConsoleApp
         public string Name
         {
             get;
-            private set;
+            set;
         }
 
         readonly string category = "Science";   //  Can only be initialized by a constructor, will not be able change this afterwards

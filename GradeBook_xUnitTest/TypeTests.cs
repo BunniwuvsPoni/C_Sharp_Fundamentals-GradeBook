@@ -4,8 +4,40 @@ using GradeBook_ConsoleApp;
 
 namespace GradeBook_xUnitTest
 {
+    //  Delegate used for events
+    public delegate string WriteLogDelegate(string logMessage);
     public class TypeTests
     {
+        //  Start delegate unit test
+        int count = 0;
+
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            WriteLogDelegate log = ReturnMessage;
+
+            //  Can invoke multiple methods, in this case we use the same method
+            //  Only requirement is the return and input type and number
+            log += ReturnMessage;
+            log += IncrementCount;
+
+            var result = log("Hello!");
+            Assert.Equal(3, count);
+        }
+
+        string IncrementCount(string message)
+        {
+            count++;
+            return message;
+        }
+
+        string ReturnMessage(string message)
+        {
+            count++;
+            return message;
+        }
+        //  End delegate unit test
+
         [Fact]
         public void StringsBehaveLikeValueTypes()
         {
