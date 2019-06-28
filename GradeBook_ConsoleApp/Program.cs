@@ -23,15 +23,23 @@ namespace GradeBook_ConsoleApp
                     break;
                 }
 
-                //  Try/Catch, used to catch exception and move on
+                //  Try/Catch, used to catch exceptions and move on. In this case, Arugement and Format
                 try
                 {
                     var grade = double.Parse(input);
                     book.AddGrade(grade);
                 }
-                catch(Exception ex)
+                catch(ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
+                }
+                catch(FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally //  Always, always, always run this code, regardless of what happens (catch or does not catch any exceptions)
+                {
+                    Console.WriteLine("**");
                 }
             }
 
