@@ -99,19 +99,7 @@ namespace GradeBook_ConsoleApp
         //  Defining properities, gives access to the private string name without allowing public access
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if(!String.IsNullOrEmpty(value))
-                {
-                    name = value;
-                }
-            }
+            get; set;
         }
-
-        private string name;
     }
 }
