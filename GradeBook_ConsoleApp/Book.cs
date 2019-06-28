@@ -46,7 +46,7 @@ namespace GradeBook_ConsoleApp
             }
             else
             {
-                Console.WriteLine("Invalid value");
+                throw new ArgumentException($"Invalid {nameof(grade)}, please try again");
             }
         }
 

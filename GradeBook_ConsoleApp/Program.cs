@@ -8,9 +8,24 @@ namespace GradeBook_ConsoleApp
         static void Main(string[] args)
         {
             var book = new Book("Bunni's Grade Book");
-            book.AddGrade(89.1);
-            book.AddGrade(90.5);
-            book.AddGrade(77.5);
+
+            //  Instructions
+            Console.WriteLine("Please input your grades, input 'q' to compute the statistics");
+
+            while(true)
+            {
+                //  Accepts user input
+                var input = Console.ReadLine();
+
+                //  Checks if user input is 'q', exit if true
+                if (input == "q")
+                {
+                    break;
+                }
+
+                var grade = double.Parse(input);
+                book.AddGrade(grade);
+            }
 
             var stats = book.GetStatistics();
 
