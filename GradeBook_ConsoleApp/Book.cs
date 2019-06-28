@@ -99,7 +99,8 @@ namespace GradeBook_ConsoleApp
         //  Defining properities, gives access to the private string name without allowing public access
         public string Name
         {
-            get; set;
+            get;
+            private set;
         }
     }
 }
