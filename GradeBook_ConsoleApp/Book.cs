@@ -104,6 +104,6 @@ namespace GradeBook_ConsoleApp
         }
 
         readonly string category = "Science";   //  Can only be initialized by a constructor, will not be able change this afterwards
-        const string type = "Code"; //  Can never changes this value
+        public const string TYPE = "Code"; //  Can never changes this value, public allows access but not change (make all uppercase to follow best practices)
     }
 }
