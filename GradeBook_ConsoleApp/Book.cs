@@ -102,5 +102,8 @@ namespace GradeBook_ConsoleApp
             get;
             private set;
         }
+
+        readonly string category = "Science";   //  Can only be initialized by a constructor, will not be able change this afterwards
+        const string type = "Code"; //  Can never changes this value
     }
 }
