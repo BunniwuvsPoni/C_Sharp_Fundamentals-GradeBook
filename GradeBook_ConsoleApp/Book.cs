@@ -95,6 +95,20 @@ namespace GradeBook_ConsoleApp
         }
 
         private List<double> grades;
-        public string Name;
+
+        //  Defining properities, gives access to the private string name without allowing public access
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+        private string name;
     }
 }
