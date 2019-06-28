@@ -12,7 +12,7 @@ namespace GradeBook_ConsoleApp
             Name = name;
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)   // Method overload, using the same method name as AddGrade below. Based on the method signature (Method name + input type, does not care for the return type)
         {
             switch(letter)
             {
