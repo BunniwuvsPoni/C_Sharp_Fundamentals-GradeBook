@@ -105,7 +105,10 @@ namespace GradeBook_ConsoleApp
             }
             set
             {
-                name = value;
+                if(!String.IsNullOrEmpty(value))
+                {
+                    name = value;
+                }
             }
         }
 
