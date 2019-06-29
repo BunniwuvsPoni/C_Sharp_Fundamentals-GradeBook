@@ -4,12 +4,27 @@ using System.Text;
 
 namespace GradeBook_ConsoleApp
 {
-    public class Book
-    {
-        //  Adding a delegate for the Grade Added event (Note: is is considered best practice to place this in its own class file)
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+    //  Adding a delegate for the Grade Added event (Note: is is considered best practice to place this in its own class file)
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-        public Book(string name)
+    public class NamedObject
+    {
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        //  Defining properities, gives access to the private string name without allowing public access
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+    public class Book : NamedObject
+    {
+
+        public Book(string name) : base(name)
         {
             grades = new List<double>();
             Name = name;
@@ -105,13 +120,6 @@ namespace GradeBook_ConsoleApp
         }
 
         private List<double> grades;
-
-        //  Defining properities, gives access to the private string name without allowing public access
-        public string Name
-        {
-            get;
-            set;
-        }
 
         readonly string category = "Science";   //  Can only be initialized by a constructor, will not be able change this afterwards
         public const string TYPE = "Code"; //  Can never changes this value, public allows access but not change (make all uppercase to follow best practices)

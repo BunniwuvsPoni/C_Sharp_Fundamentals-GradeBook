@@ -9,14 +9,23 @@ namespace GradeBook_ConsoleApp
         {
             var book = new Book("Bunni's Grade Book");
             book.GradeAdded += OnGradeAdded;
-            book.GradeAdded += OnGradeAdded;
-            book.GradeAdded -= OnGradeAdded;    //  Can also subtract using subtract equals
-            book.GradeAdded += OnGradeAdded;
 
+            EnterGrades(book);
+
+            var stats = book.GetStatistics();
+
+            Console.WriteLine($"The lowest grade is: {stats.Low:N2}");
+            Console.WriteLine($"The highest grade is: {stats.High:N2}");
+            Console.WriteLine($"The average grade is: {stats.Average:N2}");
+            Console.WriteLine($"The average letter grade is: {stats.Letter}");
+        }
+
+        private static void EnterGrades(Book book)
+        {
             //  Instructions
             Console.WriteLine("Please input your grades, input 'q' to compute the statistics");
 
-            while(true)
+            while (true)
             {
                 //  Accepts user input
                 var input = Console.ReadLine();
@@ -33,11 +42,11 @@ namespace GradeBook_ConsoleApp
                     var grade = double.Parse(input);
                     book.AddGrade(grade);
                 }
-                catch(ArgumentException ex)
+                catch (ArgumentException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-                catch(FormatException ex)
+                catch (FormatException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
@@ -46,13 +55,6 @@ namespace GradeBook_ConsoleApp
                     Console.WriteLine("**");
                 }
             }
-
-            var stats = book.GetStatistics();
-
-            Console.WriteLine($"The lowest grade is: {stats.Low:N2}");
-            Console.WriteLine($"The highest grade is: {stats.High:N2}");
-            Console.WriteLine($"The average grade is: {stats.Average:N2}");
-            Console.WriteLine($"The average letter grade is: {stats.Letter}");
         }
 
         static void OnGradeAdded(object sender, EventArgs e)
