@@ -20,7 +20,7 @@ namespace GradeBook_ConsoleApp
             Console.WriteLine($"The average letter grade is: {stats.Letter}");
         }
 
-        private static void EnterGrades(InMemoryBook book)
+        private static void EnterGrades(IBook book)
         {
             //  Instructions
             Console.WriteLine("Please input your grades, input 'q' to compute the statistics");

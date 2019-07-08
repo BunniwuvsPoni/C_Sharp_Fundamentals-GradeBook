@@ -22,16 +22,33 @@ namespace GradeBook_ConsoleApp
         }
     }
 
-    public abstract class Book : NamedObject  //  Abstract class, but you can nest inheritance by going one level down
+    //  Interface
+    public interface IBook  //  Convention is to always append "I" to the beginning of the name for a interface
+    {
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    //  Abstract class
+    public abstract class Book : NamedObject, IBook  //  Abstract class, but you can nest inheritance by going one level down
     {
         public Book(string name) : base(name)
         {
         }
 
+        public virtual event GradeAddedDelegate GradeAdded;
+
         //  Every class of a BookBase should have this method, but at this level I cannot determine the logic inside
         public abstract void AddGrade(double grade) //  Abstract method
+        
+        public virtual Statistics GetStatistics()   //  "virtual" - a derived class may override this abstract method
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class InMemoryBook : Book    //  C# cannot inherit from multiple classes
+    public class InMemoryBook : Book    //  C# cannot inherit from multiple classes, can specify multiple interfaces
     {
 
         public InMemoryBook(string name) : base(name)
@@ -83,9 +100,9 @@ namespace GradeBook_ConsoleApp
         }
 
         //  Event for subscribing
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var result = new Statistics();
             result.Average = 0.0;
