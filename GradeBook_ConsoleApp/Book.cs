@@ -24,6 +24,10 @@ namespace GradeBook_ConsoleApp
 
     public abstract class BookBase : NamedObject  //  Abstract class, but you can nest inheritance by going one level down
     {
+        public BookBase(string name) : base(name)
+        {
+        }
+
         //  Every class of a BookBase should have this method, but at this level I cannot determine the logic inside
         public abstract void AddGrade(double grade) //  Abstract method
     }
@@ -62,7 +66,7 @@ namespace GradeBook_ConsoleApp
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade) //  Override the class provided in the base class
         {
             if(0 <= grade && grade <= 100)
             {
