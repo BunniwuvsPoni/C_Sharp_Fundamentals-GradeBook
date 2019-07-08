@@ -22,7 +22,7 @@ namespace GradeBook_ConsoleApp
         }
     }
 
-    //  Interface
+    //  Interface, cannot implement the functionaly but can define it
     public interface IBook  //  Convention is to always append "I" to the beginning of the name for a interface
     {
         void AddGrade(double grade);
