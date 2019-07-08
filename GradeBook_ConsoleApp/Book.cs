@@ -22,19 +22,19 @@ namespace GradeBook_ConsoleApp
         }
     }
 
-    public abstract class BookBase : NamedObject  //  Abstract class, but you can nest inheritance by going one level down
+    public abstract class Book : NamedObject  //  Abstract class, but you can nest inheritance by going one level down
     {
-        public BookBase(string name) : base(name)
+        public Book(string name) : base(name)
         {
         }
 
         //  Every class of a BookBase should have this method, but at this level I cannot determine the logic inside
         public abstract void AddGrade(double grade) //  Abstract method
     }
-    public class Book : BookBase    //  C# cannot inherit from multiple classes
+    public class InMemoryBook : Book    //  C# cannot inherit from multiple classes
     {
 
-        public Book(string name) : base(name)
+        public InMemoryBook(string name) : base(name)
         {
             grades = new List<double>();
             Name = name;

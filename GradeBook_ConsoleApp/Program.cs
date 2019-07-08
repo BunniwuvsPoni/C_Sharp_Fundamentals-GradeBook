@@ -7,7 +7,7 @@ namespace GradeBook_ConsoleApp
     {
         static void Main(string[] args)
         {
-            var book = new Book("Bunni's Grade Book");
+            var book = new InMemoryBook("Bunni's Grade Book");
             book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
@@ -20,7 +20,7 @@ namespace GradeBook_ConsoleApp
             Console.WriteLine($"The average letter grade is: {stats.Letter}");
         }
 
-        private static void EnterGrades(Book book)
+        private static void EnterGrades(InMemoryBook book)
         {
             //  Instructions
             Console.WriteLine("Please input your grades, input 'q' to compute the statistics");

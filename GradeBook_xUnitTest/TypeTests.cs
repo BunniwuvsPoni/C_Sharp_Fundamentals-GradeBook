@@ -84,9 +84,9 @@ namespace GradeBook_xUnitTest
             Assert.Equal("New Name", book1.Name);
         }
 
-        private void GetBookSetName(out Book book, string name) //  Can use ref or out, out assumes that the incomming paramater has not been initialized.
+        private void GetBookSetName(out InMemoryBook book, string name) //  Can use ref or out, out assumes that the incomming paramater has not been initialized.
         {
-            book = new Book(name);  //  Out forces you to initialize the output parameter
+            book = new InMemoryBook(name);  //  Out forces you to initialize the output parameter
         }
 
         [Fact]
@@ -98,9 +98,9 @@ namespace GradeBook_xUnitTest
             Assert.Equal("Book 1", book1.Name);
         }
 
-        private void GetBookSetName(Book book, string name)
+        private void GetBookSetName(InMemoryBook book, string name)
         {
-            book = new Book(name);
+            book = new InMemoryBook(name);
         }
 
         [Fact]
@@ -112,7 +112,7 @@ namespace GradeBook_xUnitTest
             Assert.Equal("New Name", book1.Name);
         }
 
-        private void SetName(Book book, string name)
+        private void SetName(InMemoryBook book, string name)
         {
             book.Name = name;
         }
@@ -138,9 +138,9 @@ namespace GradeBook_xUnitTest
             Assert.True(object.ReferenceEquals(book1, book2));  //  Assert.Same is basically what is happening on the left, checks if the two objects are the same instance
         }
 
-        Book GetBook(string name)
+        InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 }

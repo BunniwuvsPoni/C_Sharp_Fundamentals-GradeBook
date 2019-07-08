@@ -10,7 +10,7 @@ namespace GradeBook_xUnitTest
         public void BookCalculatesStatistics()
         {
             //  Arrange
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(89.1);
             book.AddGrade(90.5);
             book.AddGrade(77.3);
