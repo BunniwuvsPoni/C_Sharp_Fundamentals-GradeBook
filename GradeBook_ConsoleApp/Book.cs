@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace GradeBook_ConsoleApp
@@ -38,16 +39,55 @@ namespace GradeBook_ConsoleApp
         {
         }
 
-        public virtual event GradeAddedDelegate GradeAdded;
+        public abstract event GradeAddedDelegate GradeAdded;
 
         //  Every class of a BookBase should have this method, but at this level I cannot determine the logic inside
-        public abstract void AddGrade(double grade) //  Abstract method
-        
-        public virtual Statistics GetStatistics()   //  "virtual" - a derived class may override this abstract method
+        public abstract void AddGrade(double grade); //  Abstract method
+
+        public abstract Statistics GetStatistics();   //  "virtual" - a derived class may override this abstract method
+    }
+
+    public class DiskBook : Book
+    {
+        public DiskBook(string name) : base(name)
         {
-            throw new NotImplementedException();
+        }
+
+        public override event GradeAddedDelegate GradeAdded;
+
+        public override void AddGrade(double grade)
+        {
+            using (var writer = File.AppendText($"{Name}.txt")) //  Using creates and closes the object (i.e. writing to a file, opening sockets) for you so you do not have to close/dispose the object yourself
+            {
+                writer.WriteLine(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+
+            }
+        }
+
+        public override Statistics GetStatistics()
+        {
+            var result = new Statistics();
+
+            using(var reader = File.OpenText($"{Name}.txt"))
+            {
+                var line = reader.ReadLine();
+
+                while(line != null)
+                {
+                    var number = double.Parse(line);
+                    result.Add(number);
+                    line = reader.ReadLine();
+                }
+            }
+
+            return result;
         }
     }
+
     public class InMemoryBook : Book    //  C# cannot inherit from multiple classes, can specify multiple interfaces
     {
 
@@ -105,43 +145,11 @@ namespace GradeBook_ConsoleApp
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
-            result.Average = 0.0;
-            result.High = double.MinValue;
-            result.Low = double.MaxValue;
 
             foreach (var grade in grades)
             {
-                result.High = Math.Max(grade, result.High);
-                result.Low = Math.Min(grade, result.Low);
-
-                result.Average += grade;
+                result.Add(grade);
             }
-
-            result.Average /= grades.Count;
-            
-            switch(result.Average)
-            {
-                case var d when d >= 90.0:
-                    result.Letter = 'A';
-                    break;
-
-                case var d when d >= 80.0:
-                    result.Letter = 'B';
-                    break;
-
-                case var d when d >= 70.0:
-                    result.Letter = 'C';
-                    break;
-
-                case var d when d >= 60.0:
-                    result.Letter = 'D';
-                    break;
-
-                default:
-                    result.Letter = 'F';
-                    break;
-            }
-
 
             return result;
         }
