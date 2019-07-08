@@ -36,7 +36,7 @@ namespace GradeBook_ConsoleApp
                     break;
                 }
 
-                //  Try/Catch, used to catch exceptions and move on. In this case, Arugement and Format
+                //  Try/Catch, used to catch exceptions and move on. In this case, Arguement and Format
                 try
                 {
                     var grade = double.Parse(input);
